@@ -9,11 +9,11 @@ const app = express();
 app.use(express.static(path.resolve(__dirname, "static")));
 
 app.get("/", (req, res) => {
+    res.redirect("/view/index.html")
 });
 
 app.get("/song", ((req, res) => {
     player.play(req.query.name);
-    res.redirect("/view/index.html")
 }));
 
 app.listen(51035);
