@@ -31,7 +31,7 @@ export class Player {
             if (this.songQueue.length) {
                 let song = this.playStrategy.select(this.songQueue);
                 this.childProcess = child_process.exec(`play ${song.url}`);
-                console.log(`正在播放：${song.name}`);
+                console.log(`正在播放：${song.name} ${song.url}`);
 
                 this.childProcess.addListener("close", ((code, signal) => {
                     this.loop();
